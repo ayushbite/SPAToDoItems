@@ -1,4 +1,5 @@
-import imp
+
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Todo
@@ -23,6 +24,12 @@ def index(request):
         
 
     return render(request,'index.html',context=context)
+
+
+def delete_todo(request,cus_todo_id):
+    #print(cus_todo_id)   
+    Todo.objects.get(id=cus_todo_id).delete()
+    return HttpResponseRedirect("/")
 
 
 

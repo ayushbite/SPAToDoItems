@@ -26,11 +26,26 @@
         <div class='list'>
             <ul>
                 {% for i in lists %}
-                <div class='list-item'>
-                    <li>
-                       {{i.item}}
-                    </li>
-                </div>
+               
+
+                <div class="columns">
+                    <div class="column">
+                        
+                            <li>
+                               {{i.item}} 
+                            </li>
+                            
+                    </div>
+                    <div class="column">
+                        <form action="delete_todo/{{ i.id }}/" method="post">
+                            {% csrf_token %}
+                        <button class="button is-success">
+                           Delete
+                          </button>
+                        </form>
+                    </div>
+                    
+                  </div>
                 {% endfor %}
 
             </ul>
