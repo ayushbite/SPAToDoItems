@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="columns">
+    <div class="column">
+        add todo item
+    </div>
+</div>
+<div class="columns">
+    <div class="column">
+        <form action="/" method="post">
+            {% csrf_token %}
+            <input class="input is-primary" name="items"type="text" placeholder="Primary input">
+            <div class="control">
+                <button class="button is-primary">Submit</button>
+              </div>
+            </form>
+    </div>
+
+</div>
+
+
+
+<div class='columns is-mobile is-centered'>
+    <div class='column is-5'>
+        <div class='list'>
+            <ul>
+                {% for i in lists %}
+                <div class='list-item'>
+                    <li>
+                       {{i.item}}
+                    </li>
+                </div>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
