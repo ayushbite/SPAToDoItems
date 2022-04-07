@@ -16,7 +16,7 @@ def index(request):
         Todo.objects.create(created_at=added_date,item=item)
 
 
-    todo_items=Todo.objects.all().order_by("created_at") 
+    todo_items=Todo.objects.all().order_by("-created_at") 
     context={
        'lists':todo_items
     }   
